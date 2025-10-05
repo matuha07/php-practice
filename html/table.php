@@ -9,6 +9,11 @@
 
 <body>
 
+
+  <?php
+  $cols = 3;
+  $rows = 7;
+  ?>
   <div id="header">
     <!-- Верхняя часть страницы -->
     <img src="logo.gif" width="187" height="29" alt="Наш логотип" class="logo" />
@@ -39,41 +44,21 @@
     </form>
     <!-- Таблица -->
     <table border='1' width="200">
-      <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-        <td>4</td>
-        <td>5</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>4</td>
-        <td>6</td>
-        <td>8</td>
-        <td>10</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>6</td>
-        <td>9</td>
-        <td>12</td>
-        <td>15</td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>8</td>
-        <td>12</td>
-        <td>16</td>
-        <td>10</td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td>10</td>
-        <td>15</td>
-        <td>20</td>
-        <td>25</td>
-      </tr>
+      <?php
+      for ($r = 1; $r <= $rows; $r++) {
+        echo "<tr>";
+        for ($c = 1; $c <= $cols; $c++) {
+          $value = $r * $c;
+
+          if ($r == 1 || $c == 1) {
+            echo "<td style='font-weight:bold; background: #f0f0f0;'>$value</td>";
+          } else {
+            echo "<td>$value</td>";
+          }
+        }
+        echo "</tr>";
+      }
+      ?>
     </table>
     <!-- Таблица -->
     <!-- Область основного контента -->
