@@ -11,8 +11,21 @@
 
 
   <?php
-  $cols = 3;
-  $rows = 7;
+  function drawTable($cols, $rows, $color) {
+    for ($r = 1; $r <= $rows; $r++) {
+      echo "<tr>";
+      for ($c = 1; $c <= $cols; $c++) {
+        $value = $r * $c;
+
+        if ($r == 1 || $c == 1) {
+          echo "<td style='font-weight:bold; background: $color;'>$value</td>";
+        } else {
+          echo "<td>$value</td>";
+        }
+      }
+      echo "</tr>";
+    }
+  }
   ?>
   <div id="header">
     <!-- Верхняя часть страницы -->
@@ -45,19 +58,7 @@
     <!-- Таблица -->
     <table border='1' width="200">
       <?php
-      for ($r = 1; $r <= $rows; $r++) {
-        echo "<tr>";
-        for ($c = 1; $c <= $cols; $c++) {
-          $value = $r * $c;
-
-          if ($r == 1 || $c == 1) {
-            echo "<td style='font-weight:bold; background: #f0f0f0;'>$value</td>";
-          } else {
-            echo "<td>$value</td>";
-          }
-        }
-        echo "</tr>";
-      }
+        drawTable(6, 7, "blue");
       ?>
     </table>
     <!-- Таблица -->

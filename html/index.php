@@ -14,6 +14,30 @@
    * Получаем текущий час в виде строки от 00 до 23
    * и приводим строку к целому числу от 0 до 23
    */
+
+  $leftMenu = [
+    ['link'=>'Домой', 'href'=>'index.php'],
+['link'=>'О нас', 'href'=>'about.php'],
+['link'=>'Контакты', 'href'=>'contact.php'],
+['link'=>'Таблица умножения', 'href'=>'table.php'],
+['link'=>'Калькулятор', 'href'=>'calc.php']
+  ];
+
+
+  function drawMenu($menu, $vertical = true) {
+    if ($vertical == true) {
+        echo "<ul>";
+    } else {
+      echo "<ul style='display: flex;'";
+    }
+
+    foreach ($menu as $item) {
+      echo "<li><a href='{$item['href']}'>{$item['link']}</a></li>";
+    }
+
+    echo "</ul>";
+
+  }
   $dateTime = date_create('now');
 
 
@@ -79,25 +103,9 @@
     <!-- Навигация -->
     <h2>Навигация по сайту</h2>
     <!-- Меню -->
-
     <?php
-    $leftMenu = [
-      ['link'=>'Домой', 'href'=>'index.php'],
-      ['link'=>'О нас', 'href'=>'about.php'],
-      ['link'=>'Контакты', 'href'=>'contact.php'],
-      ['link'=>'Таблица умножения', 'href'=>'table.php'],
-      ['link'=>'Калькулятор', 'href'=>'calc.php']
-    ];
-
-
+        drawMenu($leftMenu, false);
     ?>
-    <ul>
-    <?php
-      foreach ($leftMenu as $item) {
-        echo "<li><a href='{$item['href']}'>{$item['link']}</a></li>";
-      }
-    ?>
-    </ul>
 
     <!-- Меню -->
     <!-- Навигация -->
