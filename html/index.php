@@ -1,71 +1,67 @@
-<?php
-require_once 'inc/lib.inc.php';
-require_once 'inc/data.inc.php';
-
-// Инициализация заголовков страницы
-$title = 'Сайт нашей школы';
-$header = "$welcome, Гость!";
-$id = isset($_GET['id']) ? strtolower(strip_tags(trim($_GET['id']))) : '';
-
-switch ($id) {
-  case 'about':
-    $title = 'О сайте';
-    $header = 'О нашем сайте';
-    break;
-  case 'contact':
-    $title = 'Контакты';
-    $header = 'Обратная связь';
-    break;
-  case 'table':
-    $title = 'Таблица умножения';
-    $header = 'Таблица умножения';
-    break;
-  case 'calc':
-    $title = 'Он-лайн калькулятор';
-    $header = 'Калькулятор';
-    break;
-}
-
+<?php 
+  include 'inc/headers.inc.php'; 
+  include 'inc/cookie.inc.php';
 ?>
-
 <!DOCTYPE html>
 <html>
 
-
 <head>
-  <title> <?php echo $title ?> </title>
+  <title>
+    <?=$title?>
+  </title>
   <meta charset="utf-8" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" type="text/css" href="inc/style.css" />
 </head>
 
 <body>
 
+  <div id="header">
+    <!-- Верхняя часть страницы -->
 
-  <?php include 'inc/top.inc.php'; ?>
-  <?php include 'inc/menu.inc.php'; ?>
-  <?php
-  switch ($id) {
-    case 'about':
-      include 'about.php';
-      break;
-    case 'contact':
-      include 'contact.php';
-      break;
-    case 'table':
-      include 'table.php';
-      break;
-    case 'calc':
-      include 'calc.php';
-      break;
-    default:
-      include 'inc/index.inc.php';
-  }
-  ?>
-  <?php include 'inc/bottom.inc.php'; ?>
+    <img src="logo.gif" width="187" height="29" alt="Наш логотип" class="logo" />
+    <span class="slogan">обо всём сразу</span>
+    <!-- Верхняя часть страницы -->
+  </div>
 
-
-
-
+  <div id="content">
+    <?php
+    if ($visitCounter == 0) {
+        echo "Вы к нам зашли в первый раз";
+    } else {
+      echo "Вы к нам зашли в какой-то раз </br> Последнее посещение: $lastVisit";
+    }
+     ?>
+    <!-- Заголовок -->
+    <h1><?= $header?></h1>
+    <!-- Заголовок -->
+    <!-- Область основного контента -->
+    <?php 
+      include 'inc/routing.inc.php'; 
+    ?>
+    <!-- Область основного контента -->
+  </div>
+  <div id="nav">
+    <!-- Навигация -->
+    <h2>Навигация по сайту</h2>
+    <ul>
+      <li><a href='index.php'>Домой</a>
+      </li>
+      <li><a href='index.php?id=contact'>Контакты</a>
+      </li>
+      <li><a href='index.php?id=about'>О нас</a>
+      </li>
+      <li><a href='index.php?id=info'>Информация</a>
+      </li>
+      <li><a href='index.php?id=gbook'>Гостевая книга</a>
+      </li>
+    </ul>
+    <!-- Навигация -->
+  </div>
+  <div id="footer">
+    <!-- Нижняя часть страницы -->
+    &copy; Супер-мега сайт, 2000 &ndash; <?= date('Y')?>
+      <!-- Нижняя часть страницы -->
+  </div>
 </body>
 
 </html>
