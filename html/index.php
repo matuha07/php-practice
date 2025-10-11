@@ -25,7 +25,7 @@
 
   <div id="content">
     <?php
-    if ($visitCounter == 0) {
+    if ($visitCounter <= 1) {
         echo "Вы к нам зашли в первый раз";
     } else {
       echo "Вы к нам зашли в какой-то раз </br> Последнее посещение: $lastVisit";
