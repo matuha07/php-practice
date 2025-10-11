@@ -10,23 +10,7 @@
 <body>
 
 
-  <?php
-  function drawTable($cols, $rows, $color) {
-    for ($r = 1; $r <= $rows; $r++) {
-      echo "<tr>";
-      for ($c = 1; $c <= $cols; $c++) {
-        $value = $r * $c;
 
-        if ($r == 1 || $c == 1) {
-          echo "<td style='font-weight:bold; background: $color;'>$value</td>";
-        } else {
-          echo "<td>$value</td>";
-        }
-      }
-      echo "</tr>";
-    }
-  }
-  ?>
   <div id="header">
     <!-- Верхняя часть страницы -->
     <img src="logo.gif" width="187" height="29" alt="Наш логотип" class="logo" />
