@@ -1,6 +1,6 @@
   <div id="content">
     <!-- Заголовок -->
-    <h1><?= $welcome ?>, Гость!</h1>
+    <h1><?php echo $header?> </h1>
     <!-- Заголовок -->
     <!-- Область основного контента -->
     <h3>Зачем мы ходим в школу?</h3>
@@ -11,7 +11,6 @@
 
       $day = $dateTime->format('d');
       $mon = $dateTime->format('m');
-      $year = $dateTime->format('Y');
       echo 'Сегодня ', $day, ' число, ', $mon, ' месяц, ', $year, ' год.'; ?>
     </blockquote>
     <p>

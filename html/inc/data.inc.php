@@ -6,11 +6,13 @@
 
 $leftMenu = [
     ['link' => 'Домой', 'href' => 'index.php'],
-    ['link' => 'О нас', 'href' => 'about.php'],
-    ['link' => 'Контакты', 'href' => 'contact.php'],
-    ['link' => 'Таблица умножения', 'href' => 'table.php'],
-    ['link' => 'Калькулятор', 'href' => 'calc.php']
+    ['link' => 'О нас', 'href' => 'index.php?id=about'],
+    ['link' => 'Контакты', 'href' => 'index.php?id=contact'],
+    ['link' => 'Таблица умножения', 'href' => 'index.php?id=table'],
+    ['link' => 'Калькулятор', 'href' => 'index.php?id=calc']
 ];
+
+
 
 
 
@@ -18,6 +20,8 @@ $dateTime = date_create('now');
 
 
 $hour = (int) $dateTime->format('H');
+$year = $dateTime->format('Y');
+
 $welcome = ''; // Инициализируем переменную для приветствия
 
 if ($hour > 0 && $hour < 6) {
