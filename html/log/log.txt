@@ -6,3 +6,5 @@
 10/16/2025 09:51:04 am|/index.php?id=gbook|http://localhost/index.php?id=log
 10/16/2025 09:51:05 am|/index.php?id=log|http://localhost/index.php?id=gbook
 10/16/2025 09:51:27 am | /index.php?id=log | http://localhost/index.php?id=gbook 
+10/16/2025 10:02:01 am | /index.php?id=log | http://localhost/index.php?id=gbook 
+10/16/2025 10:02:16 am | /index.php?id=log | http://localhost/index.php?id=gbook 

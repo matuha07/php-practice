@@ -1,5 +1,6 @@
 <?
-$logFile = "log/log.txt";
-$myfile = fopen($logFile, "r") or die("не смог открыть файл");
-echo nl2br(file_get_contents('log/log.txt'));
-fclose($myfile);
+$lines = file('log/log.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+foreach ($lines as $line) {
+    list($dt, $page, $ref) = explode('|', $line);
+    echo "<li>" . htmlspecialchars("$dt - $page -> $ref") . "</li>";
+}
